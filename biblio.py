@@ -1,5 +1,17 @@
 def inserisci(cat, cognome, nome, titolo, anno, collocazione, note=[]):
-    aaaa
+    if type(cat) != list:
+        return None
+    elif type(cognome) != str or type(nome) != str or type(titolo) != str:
+        return None
+    elif type(collocazione[0]) != str and type(collocazione[1]) != int:
+        return None
+    elif type(anno) != int and anno >= 0:
+        return None
+    elif type(note) != str or type(note) != list or type(note) != bool:
+        return None
+    else:
+        cat.append()
+
     """ Inserisce un nuovo record (libro) nel catalogo controllando che i tipi dei
     parametri attuali siano corretti -- non modifica maiuscole e minuscole dei parametri
     :param cat: il catalogo da modificare
