@@ -3,14 +3,17 @@ def inserisci(cat, cognome, nome, titolo, anno, collocazione, note=[]):
         return None
     elif type(cognome) != str or type(nome) != str or type(titolo) != str:
         return None
-    elif type(collocazione[0]) != str and type(collocazione[1]) != int:
+    elif type(collocazione[0]) != str and (type(collocazione[1]) and collocazione[1] > 0) != int:
         return None
     elif type(anno) != int and anno >= 0:
         return None
-    elif type(note) != str or type(note) != list or type(note) != bool:
+    elif (type(note) != str) or (type(note) != list) or (type(note) != bool):
+        print(type(note))
         return None
     else:
-        cat.append()
+        cat.append(cognome, nome, titolo, anno, collocazione, note)
+
+    return cat
 
     """ Inserisce un nuovo record (libro) nel catalogo controllando che i tipi dei
     parametri attuali siano corretti -- non modifica maiuscole e minuscole dei parametri
@@ -29,6 +32,9 @@ def inserisci(cat, cognome, nome, titolo, anno, collocazione, note=[]):
 
 
 def serializza(cat):
+    if type(cat) == list:  # O TUPLA
+        for elemento in cat:
+            return elemento + "\n"
     """ Serializza un catalogo rappresentando la sequenza dei record in una singola stringa
     La sottostringa relativa al singolo record
     puo' usare un formato a scelta dello studente,
@@ -41,6 +47,9 @@ def serializza(cat):
 
 
 def crea_copia(cat):
+    if type(cat) == list:  # O TUPLA??
+        copia = cat
+        return copia
     """ Crea una copia completa del catalogo cat (un clone) e lo restituisce
     :param cat: il catalogo da clonare
     :return: il nuovo catalogo clonato
@@ -49,6 +58,12 @@ def crea_copia(cat):
 
 
 def sono_uguali(cat1, cat2):
+    for elemento1 in cat1:
+        for elemento2 in cat2:
+            if elemento1 == elemento2:
+                return True
+            else:
+                return False
     """Funzione booleana che stabilisce se due cataloghi contengono
     esattamente gli stessi record con gli stessi dati (eccetto collocazione e nota -- che possono
     essere divers)
@@ -97,6 +112,7 @@ def cerca(cat, pctitolo):
 
 
 def ordina(cat):
+    # cat[0].sort()
     """ Ordina il catalogo alfabeticamente per cognome e nome e
     (in caso di piu' opere dello stesso autore) per anno di pubblicazione e
     infine per Titolo all'interno dello stesso anno come in:
