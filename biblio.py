@@ -1,4 +1,5 @@
-def inserisci(cat,cognome,nome,titolo,anno,collocazione,note=[]):
+def inserisci(cat, cognome, nome, titolo, anno, collocazione, note=[]):
+    aaaa
     """ Inserisce un nuovo record (libro) nel catalogo controllando che i tipi dei
     parametri attuali siano corretti -- non modifica maiuscole e minuscole dei parametri
     :param cat: il catalogo da modificare
@@ -12,10 +13,10 @@ def inserisci(cat,cognome,nome,titolo,anno,collocazione,note=[]):
     altrimenti
     :return: None se i parametri non hanno il tipo corretto
     """
-    pass #instruzione che non fa niente --> da sostituire con il codice
+    pass  # instruzione che non fa niente --> da sostituire con il codice
 
 
-def serializza (cat):
+def serializza(cat):
     """ Serializza un catalogo rappresentando la sequenza dei record in una singola stringa
     La sottostringa relativa al singolo record
     puo' usare un formato a scelta dello studente,
@@ -24,7 +25,7 @@ def serializza (cat):
     :param cat: il catalogo da serializzare
     :return: una stringa che rappresenta il catalogo
     """
-    pass #istruzione che non fa niente --> da sostituire con il codice
+    pass  # istruzione che non fa niente --> da sostituire con il codice
 
 
 def crea_copia(cat):
@@ -32,10 +33,10 @@ def crea_copia(cat):
     :param cat: il catalogo da clonare
     :return: il nuovo catalogo clonato
     """
-    pass #istruzione che non fa niente --> da sostituire con il codice
+    pass  # istruzione che non fa niente --> da sostituire con il codice
 
 
-def sono_uguali(cat1,cat2):
+def sono_uguali(cat1, cat2):
     """Funzione booleana che stabilisce se due cataloghi contengono
     esattamente gli stessi record con gli stessi dati (eccetto collocazione e nota -- che possono
     essere divers)
@@ -47,7 +48,7 @@ def sono_uguali(cat1,cat2):
     pass  # istruzione che non fa niente --> da sostituire con il codice
 
 
-def concatena(cat1,cat2):
+def concatena(cat1, cat2):
     """crea un nuovo catalogo concatenando cat1 e cat2 e lo restituisce come risultato --
     se ci sono k record uguali in tutti i campi eccetto il campo "note"
     il risultato contiene un solo record che nel campo note contiene la
@@ -71,6 +72,7 @@ def cancella(cat,  titolo, anno=None):
     """
     pass  # istruzione che non fa niente --> da sostituire con il codice
 
+
 def cerca(cat, pctitolo):
     """Verifica che esista almeno un titolo che contiene la stringa pctitolo come sottoscringa (attenzione agli spazi bianchi
      e a maiuscole e minuscole)
@@ -80,6 +82,7 @@ def cerca(cat, pctitolo):
     :return: None se i parametri non hanno il tipo corretto
     """
     pass  # instruzione che non fa niente --> da sostituire con il codice
+
 
 def ordina(cat):
     """ Ordina il catalogo alfabeticamente per cognome e nome e
@@ -94,4 +97,3 @@ def ordina(cat):
     :return: None (la funzione modifica il catalogo e non restituisce niente)
     """
     pass  # instruzione che non fa niente --> da sostituire con il codice
-
