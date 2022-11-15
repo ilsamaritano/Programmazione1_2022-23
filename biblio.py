@@ -7,7 +7,7 @@ def inserisci(cat, cognome, nome, titolo, anno, collocazione, note=[]):
         return None
     elif type(anno) != int and anno >= 0:
         return None
-    elif (type(note) != list):  # (type(note) != str) or
+    elif (type(note) != list) and (type(note) != str):
         return None
     else:
         if note == []:
@@ -15,12 +15,13 @@ def inserisci(cat, cognome, nome, titolo, anno, collocazione, note=[]):
             tupla = (cognome, nome, titolo, anno, collocazione)
             cat.append(tupla)
             return True
-        else:
+        elif type(note) == str or type(note) == int:
             tupla = (cognome, nome, titolo, anno, collocazione,
                      note)  # COMMENTARE IL CODICE
             cat.append(tupla)
             return True
-    return False
+        else:
+            return False
 
     """ Inserisce un nuovo record (libro) nel catalogo controllando che i tipi dei
     parametri attuali siano corretti -- non modifica maiuscole e minuscole dei parametri
@@ -36,6 +37,7 @@ def inserisci(cat, cognome, nome, titolo, anno, collocazione, note=[]):
     :return: None se i parametri non hanno il tipo corretto
     """
     pass  # instruzione che non fa niente --> da sostituire con il codice
+# qui dev'esserci un errore nella funzione di test
 
 
 def serializza(cat):
