@@ -7,11 +7,12 @@ def inserisci(cat, cognome, nome, titolo, anno, collocazione, note=[]):
         return None
     elif type(anno) != int and anno >= 0:
         return None
-    elif (type(note) != str) or (type(note) != list) or (type(note) != bool):
-        print(type(note))
+    elif (type(note) != list):  # (type(note) != str) or   or (type(note) != bool)
         return None
     else:
-        cat.append(cognome, nome, titolo, anno, collocazione, note)
+        tupla = (cognome, nome, titolo, anno, collocazione,
+                 note)  # COMMENTARE IL CODICE
+        cat.append(tupla)
 
     return cat
 
@@ -34,7 +35,7 @@ def inserisci(cat, cognome, nome, titolo, anno, collocazione, note=[]):
 def serializza(cat):
     if type(cat) == list:  # O TUPLA
         for elemento in cat:
-            return elemento + "\n"
+            return str(elemento) + "\n"
     """ Serializza un catalogo rappresentando la sequenza dei record in una singola stringa
     La sottostringa relativa al singolo record
     puo' usare un formato a scelta dello studente,
