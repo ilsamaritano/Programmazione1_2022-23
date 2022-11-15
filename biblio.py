@@ -75,9 +75,11 @@ def sono_uguali(cat1, cat2):
     for elemento1 in cat1:
         for elemento2 in cat2:
             if elemento1 == elemento2:
-                return True
+                uguali = True
             else:
-                return False
+                uguali = False
+                break  # Serve a renderlo computazionalmente più efficiente
+    return uguali
     """Funzione booleana che stabilisce se due cataloghi contengono
     esattamente gli stessi record con gli stessi dati (eccetto collocazione e nota -- che possono
     essere divers)
