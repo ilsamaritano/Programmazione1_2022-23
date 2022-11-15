@@ -10,9 +10,14 @@ def inserisci(cat, cognome, nome, titolo, anno, collocazione, note=[]):
     elif (type(note) != list):  # (type(note) != str) or   or (type(note) != bool)
         return None
     else:
-        tupla = (cognome, nome, titolo, anno, collocazione,
-                 note)  # COMMENTARE IL CODICE
-        cat.append(tupla)
+        if note == []:
+            # COMMENTARE IL CODICE
+            tupla = (cognome, nome, titolo, anno, collocazione)
+            cat.append(tupla)
+        else:
+            tupla = (cognome, nome, titolo, anno, collocazione,
+                     note)  # COMMENTARE IL CODICE
+            cat.append(tupla)
 
     return cat
 
