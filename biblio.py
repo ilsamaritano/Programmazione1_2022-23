@@ -5,6 +5,7 @@ CATALOGO -> lista di tuple separate da \n
 """
 from testMy import *
 
+
 def inserisci(cat, cognome, nome, titolo, anno, collocazione, note=[]):
     risposta = False
     if type(cat) != list:
@@ -50,9 +51,11 @@ def inserisci(cat, cognome, nome, titolo, anno, collocazione, note=[]):
 
 def serializza(cat):
     riga = ""
-    if type(cat) == list:  
+    if type(cat) == list:
         for elemento in cat:
-            riga += str(elemento) + "\n"
+            riga += str(elemento)
+        riga += "/n"
+
     return riga
     """ Serializza un catalogo rappresentando la sequenza dei record in una singola stringa
     La sottostringa relativa al singolo record
@@ -66,7 +69,7 @@ def serializza(cat):
 
 
 def crea_copia(cat):
-    #si fa una clonazione con slice
+    # si fa una clonazione con slice
     newCat = cat[:]
     return newCat
     """ Crea una copia completa del catalogo cat (un clone) e lo restituisce
@@ -77,12 +80,11 @@ def crea_copia(cat):
 
 
 def sono_uguali(cat1, cat2):
-    if cat1==cat2:
+    if cat1 == cat2:
         return True
     else:
-        return False #taglia la stringa in altra funzione?  
+        return False  # taglia la stringa in altra funzione?
 
-    
     """Funzione booleana che stabilisce se due cataloghi contengono
     esattamente gli stessi record con gli stessi dati (eccetto collocazione e nota -- che possono
     essere divers)
