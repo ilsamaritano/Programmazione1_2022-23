@@ -25,7 +25,7 @@ def inserisci(cat, cognome, nome, titolo, anno, collocazione, note=[]):
             cat.append(tupla)
             risposta = True
         elif type(note) == str or type(note) == int:
-            tupla = (cognome, nome, titolo, anno, collocazione,
+            tupla = (cognome, nome, titolo, collocazione, anno,
                      note)  # COMMENTARE IL CODICE
             cat.append(tupla)
             risposta = True
@@ -53,9 +53,7 @@ def serializza(cat):
     riga = ""
     if type(cat) == list:
         for elemento in cat:
-            riga += str(elemento)
-        riga += "/n"
-
+            riga += str(elemento) + "\n"
     return riga
     """ Serializza un catalogo rappresentando la sequenza dei record in una singola stringa
     La sottostringa relativa al singolo record
@@ -80,10 +78,23 @@ def crea_copia(cat):
 
 
 def sono_uguali(cat1, cat2):
-    if cat1 == cat2:
+    if len(cat1) != len(cat2):
+        return False
+    elif cat1==cat2:
         return True
     else:
-        return False  # taglia la stringa in altra funzione?
+        newCat1 = []
+        newCat2 = []
+        for record1 in cat1:
+            nuovo = (record1[0], record1[1], record1[2], record1[4])
+            newCat1.append(nuovo)
+        for record2 in cat2:
+            nuovo2 = (record2[0], record2[1], record2[2], record2[4])
+            newCat2.append(nuovo2)
+        for tupla in newCat1:
+            if tupla not in newCat2:
+                return False
+        return True 
 
     """Funzione booleana che stabilisce se due cataloghi contengono
     esattamente gli stessi record con gli stessi dati (eccetto collocazione e nota -- che possono

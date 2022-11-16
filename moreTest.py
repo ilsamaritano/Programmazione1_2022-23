@@ -9,19 +9,20 @@ inserisci(c, "Wowowowow", "Colin", "Il mondo paxxo", 2012, ("B", 15))
 inserisci(c, "Brodie", "Colin", "Il mondo rumoroso",
           2012, ("H", 15), "Mi piace se ti muovi")
 
+b = crea_copia(c)
 
-d = serializza(c)
-e = crea_copia(d)
-print("d:", d)
-newCat = d[:]
+inserisci(c, "fuckke", "Colin", "Il mondo rumoroso",
+          2012, ("H", 15), "Mi piace se ti muovi")
+    
 
 
-newCat = newCat.replace("(", "")
-newCat = newCat.replace(")", "")
-newCat = newCat.replace(",", "")
-cat = list(newCat.split("\n"))
-print(cat)
+nuovo = crea_copia(c)
+nuovo.append(b[1])
+print(nuovo)
 
-d1 = d.split("', '")
-print(len(d1))
-print('d1', d1)
+
+
+
+
+
+
