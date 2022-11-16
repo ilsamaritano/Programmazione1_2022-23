@@ -1,27 +1,35 @@
+"""
+LIBRO -> tupla (cognomeautore, nomeautore, titolo, collocazione, anno, note)
+CATALOGO -> lista di tuple separate da \n
+
+"""
+from testMy import *
+
 def inserisci(cat, cognome, nome, titolo, anno, collocazione, note=[]):
+    risposta = False
     if type(cat) != list:
-        return None
+        risposta = None
     elif type(cognome) != str or type(nome) != str or type(titolo) != str:
-        return None
+        risposta = None
     elif type(collocazione[0]) != str and (type(collocazione[1]) and collocazione[1] > 0) != int:
-        return None
+        risposta = None
     elif type(anno) != int and anno >= 0:
-        return None
+        risposta = None
     elif (type(note) != list) and (type(note) != str):
-        return None
+        risposta = None
     else:
         if note == []:
             # COMMENTARE IL CODICE
-            tupla = (cognome, nome, titolo, anno, collocazione)
+            tupla = (cognome, nome, titolo,  collocazione, anno)
             cat.append(tupla)
-            return True
+            risposta = True
         elif type(note) == str or type(note) == int:
             tupla = (cognome, nome, titolo, anno, collocazione,
                      note)  # COMMENTARE IL CODICE
             cat.append(tupla)
-            return True
-        else:
-            return False
+            risposta = True
+
+    return risposta
 
     """ Inserisce un nuovo record (libro) nel catalogo controllando che i tipi dei
     parametri attuali siano corretti -- non modifica maiuscole e minuscole dei parametri
@@ -45,7 +53,7 @@ def serializza(cat):
     if type(cat) == list:  # O TUPLA
         for elemento in cat:
             for tupla in elemento:
-                riga += str(tupla) + "/n"
+                riga += str(tupla) + "\n"
             return elemento
 
     # return riga
@@ -61,9 +69,9 @@ def serializza(cat):
 
 
 def crea_copia(cat):
-    if type(cat) == list:  # O TUPLA??
-        copia = cat
-        return copia
+    #si fa una clonazione con slice
+    newCat = cat[:]
+    return newCat
     """ Crea una copia completa del catalogo cat (un clone) e lo restituisce
     :param cat: il catalogo da clonare
     :return: il nuovo catalogo clonato
@@ -72,14 +80,12 @@ def crea_copia(cat):
 
 
 def sono_uguali(cat1, cat2):
-    for elemento1 in cat1:
-        for elemento2 in cat2:
-            if elemento1 == elemento2:
-                uguali = True
-            else:
-                uguali = False
-                break  # Serve a renderlo computazionalmente più efficiente
-    return uguali
+    if cat1==cat2:
+        return True
+    else:
+        return False #taglia la stringa in altra funzione?  
+
+    
     """Funzione booleana che stabilisce se due cataloghi contengono
     esattamente gli stessi record con gli stessi dati (eccetto collocazione e nota -- che possono
     essere divers)
