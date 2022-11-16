@@ -122,7 +122,7 @@ def cancella(cat,  titolo, anno=None):
         if (elemento[2].lower() == titolo.lower() and (anno == None or elemento[3] == anno)):
             cat.pop(counter)
             eliminati += 1
-        counter += 1
+        counter += 1  # IL RETURN NONE
 
     return eliminati
     """Cancella tutti i record per i quali i campi titolo (e opzionalmente anno)
