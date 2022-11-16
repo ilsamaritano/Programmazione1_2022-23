@@ -116,6 +116,15 @@ def concatena(cat1, cat2):
 
 
 def cancella(cat,  titolo, anno=None):
+    counter = 0
+    eliminati = 0
+    for elemento in cat:
+        if (elemento[2].lower() == titolo.lower() and (anno == None or elemento[3] == anno)):
+            cat.pop(counter)
+            eliminati += 1
+        counter += 1
+
+    return eliminati
     """Cancella tutti i record per i quali i campi titolo (e opzionalmente anno)
     coincidono con i parametri (titolo,anno)
     :param cat: il catalogo da modificare
@@ -129,6 +138,7 @@ def cancella(cat,  titolo, anno=None):
 
 def cerca(cat, pctitolo):
     for elemento in cat:
+        # La funzione restituisce -1 se l'elemento non viene trovato
         if elemento[2].find(pctitolo) != -1:
             trovato = True
             break
@@ -147,6 +157,7 @@ def cerca(cat, pctitolo):
 
 def ordina(cat):
     cat.sort()
+    return cat
     """ Ordina il catalogo alfabeticamente per cognome e nome e
     (in caso di piu' opere dello stesso autore) per anno di pubblicazione e
     infine per Titolo all'interno dello stesso anno come in:
