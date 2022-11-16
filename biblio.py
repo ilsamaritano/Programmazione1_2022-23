@@ -147,7 +147,6 @@ def cerca(cat, pctitolo):
 
 def ordina(cat):
     cat.sort()
-    print(cat)
     """ Ordina il catalogo alfabeticamente per cognome e nome e
     (in caso di piu' opere dello stesso autore) per anno di pubblicazione e
     infine per Titolo all'interno dello stesso anno come in:
