@@ -50,13 +50,10 @@ def inserisci(cat, cognome, nome, titolo, anno, collocazione, note=[]):
 
 def serializza(cat):
     riga = ""
-    if type(cat) == list:  # O TUPLA
+    if type(cat) == list:  
         for elemento in cat:
-            for tupla in elemento:
-                riga += str(tupla) + "\n"
-            return elemento
-
-    # return riga
+            riga += str(elemento) + "\n"
+    return riga
     """ Serializza un catalogo rappresentando la sequenza dei record in una singola stringa
     La sottostringa relativa al singolo record
     puo' usare un formato a scelta dello studente,

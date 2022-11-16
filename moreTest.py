@@ -10,7 +10,7 @@ inserisci(c, "Brodie", "Colin", "Il mondo rumoroso", 2012, ("H", 15), "Mi piace 
 
 d = serializza(c)
 e = crea_copia(d)
-
+print(d)
 newCat = d[:]
 
 
