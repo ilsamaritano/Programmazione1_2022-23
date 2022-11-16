@@ -97,6 +97,12 @@ def sono_uguali(cat1, cat2):
 
 
 def concatena(cat1, cat2):
+    nuovo = []
+    for elemento1 in cat1:
+        for elemento2 in cat2:
+            if elemento1 == elemento2:
+                nuovo.append(elemento1)
+    return nuovo
     """crea un nuovo catalogo concatenando cat1 e cat2 e lo restituisce come risultato --
     se ci sono k record uguali in tutti i campi eccetto il campo "note"
     il risultato contiene un solo record che nel campo note contiene la
@@ -122,6 +128,13 @@ def cancella(cat,  titolo, anno=None):
 
 
 def cerca(cat, pctitolo):
+    for elemento in cat:
+        if elemento[2].find(pctitolo) != -1:
+            trovato = True
+            break
+        else:
+            trovato = False
+    return trovato
     """Verifica che esista almeno un titolo che contiene la stringa pctitolo come sottoscringa (attenzione agli spazi bianchi
      e a maiuscole e minuscole)
     :param cat: il catalogo (non viene modificato)
@@ -133,7 +146,8 @@ def cerca(cat, pctitolo):
 
 
 def ordina(cat):
-    # cat[0].sort()
+    cat.sort()
+    print(cat)
     """ Ordina il catalogo alfabeticamente per cognome e nome e
     (in caso di piu' opere dello stesso autore) per anno di pubblicazione e
     infine per Titolo all'interno dello stesso anno come in:
