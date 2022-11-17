@@ -80,8 +80,6 @@ def crea_copia(cat):
 def sono_uguali(cat1, cat2):
     if len(cat1) != len(cat2):
         return False
-    elif cat1 == cat2:
-        return True
     else:
         newCat1 = []
         newCat2 = []
