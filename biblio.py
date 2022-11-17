@@ -108,7 +108,7 @@ def sono_uguali(cat1, cat2):
 def concatena(cat1, cat2):
     nuovo = []
     for elemento in cat1:
-        if elemento in cat2:
+        if elemento in cat2:  # NON VA BENE PERCHE' FA L'INTERSEZIONE PD
             if len(elemento) == 5:
                 nuovo.append(elemento)
             else:
