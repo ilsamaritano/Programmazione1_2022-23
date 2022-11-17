@@ -107,16 +107,21 @@ def sono_uguali(cat1, cat2):
 
 def concatena(cat1, cat2):
     nuovo = []
-    for elemento in cat1:
+    for indice, elemento in enumerate(cat1):
         if elemento in cat2:
             if len(elemento) == 5:
                 nuovo.append(elemento)
             else:
+                index = cat2.index(elemento)
                 # nuovo.append(elemento)
-                for tupla in elemento:
-                    nota = tupla[5] +
-                    nuovatupla = tupla[5]
-
+                # for tupla in elemento:
+                nota = cat2[index][5]
+                notacombinata = elemento[5]+nota
+                elemento = list(elemento)
+                elemento[5] = notacombinata
+                elemento = tuple(elemento)
+                print(elemento)
+    nuovo.sort()
     return nuovo
     """crea un nuovo catalogo concatenando cat1 e cat2 e lo restituisce come risultato --
     se ci sono k record uguali in tutti i campi eccetto il campo "note"
@@ -159,7 +164,7 @@ def cerca(cat, pctitolo):
             break
         else:
             trovato = False
-    return trovato
+    # return trovato
     """Verifica che esista almeno un titolo che contiene la stringa pctitolo come sottoscringa (attenzione agli spazi bianchi
      e a maiuscole e minuscole)
     :param cat: il catalogo (non viene modificato)
