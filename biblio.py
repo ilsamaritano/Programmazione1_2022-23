@@ -107,10 +107,16 @@ def sono_uguali(cat1, cat2):
 
 def concatena(cat1, cat2):
     nuovo = []
-    for elemento1 in cat1:
-        for elemento2 in cat2:
-            if elemento1 == elemento2:
-                nuovo.append(elemento1)
+    for elemento in cat1:
+        if elemento in cat2:
+            if len(elemento) == 5:
+                nuovo.append(elemento)
+            else:
+                # nuovo.append(elemento)
+                for tupla in elemento:
+                    nota = tupla[5] +
+                    nuovatupla = tupla[5]
+
     return nuovo
     """crea un nuovo catalogo concatenando cat1 e cat2 e lo restituisce come risultato --
     se ci sono k record uguali in tutti i campi eccetto il campo "note"
