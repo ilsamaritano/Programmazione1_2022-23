@@ -107,7 +107,7 @@ def sono_uguali(cat1, cat2):
 
 def concatena(cat1, cat2):
     nuovo = []
-    for indice, elemento in enumerate(cat1):
+    for elemento in cat1:
         if elemento in cat2:
             if len(elemento) == 5:
                 nuovo.append(elemento)
@@ -116,7 +116,7 @@ def concatena(cat1, cat2):
                 # nuovo.append(elemento)
                 # for tupla in elemento:
                 nota = cat2[index][5]
-                notacombinata = elemento[5]+nota
+                notacombinata = elemento[5]+', ' + nota
                 elemento = list(elemento)
                 elemento[5] = notacombinata
                 elemento = tuple(elemento)
@@ -164,7 +164,7 @@ def cerca(cat, pctitolo):
             break
         else:
             trovato = False
-    # return trovato
+    return trovato
     """Verifica che esista almeno un titolo che contiene la stringa pctitolo come sottoscringa (attenzione agli spazi bianchi
      e a maiuscole e minuscole)
     :param cat: il catalogo (non viene modificato)
