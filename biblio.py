@@ -80,7 +80,7 @@ def crea_copia(cat):
 def sono_uguali(cat1, cat2):
     if len(cat1) != len(cat2):
         return False
-    elif cat1==cat2:
+    elif cat1 == cat2:
         return True
     else:
         newCat1 = []
@@ -94,7 +94,7 @@ def sono_uguali(cat1, cat2):
         for tupla in newCat1:
             if tupla not in newCat2:
                 return False
-        return True 
+        return True
 
     """Funzione booleana che stabilisce se due cataloghi contengono
     esattamente gli stessi record con gli stessi dati (eccetto collocazione e nota -- che possono
@@ -168,7 +168,7 @@ def cerca(cat, pctitolo):
 
 def ordina(cat):
     cat.sort()
-    return cat
+    return None
     """ Ordina il catalogo alfabeticamente per cognome e nome e
     (in caso di piu' opere dello stesso autore) per anno di pubblicazione e
     infine per Titolo all'interno dello stesso anno come in:
