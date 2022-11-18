@@ -1,25 +1,29 @@
 from biblio import *
 from testMy import *
 
-c = []
 
-inserisci(c, 12.0, "Colin",
-          "Il mondo silenzioso di Nicholas Quinn", 2012, ("G", 15))
-inserisci(c, "Wowowowow", "Colin", "Il mondo paxxo", 2012, ("B", 15))
-inserisci(c, "Brodie", "Colin", "Il mondo rumoroso",
-          2012, ("H", 15), "Mi piace se ti muovi")
+def concatenaprova(cat1, cat2):
+    nuovo = [] #togliere?
+    for elemento in cat1:
+        if len(elemento)==4:
+            if elemento in cat2:  # NON VA BENE PERCHE' FA L'INTERSEZIONE PD
+                nuovo = cat1+elemento
 
-b = crea_copia(c)
-
-inserisci(c, "fuckke", "Colin", "Il mondo rumoroso",
-          2012, ("H", 15), "Mi piace se ti muovi")
-    
-
-
-nuovo = crea_copia(c)
-nuovo.append(b[1])
-print(nuovo)
-
+            if len(elemento) == 5:
+                nuovo.append(elemento)
+                #nuovo = cat1 + elemento?
+            else:
+                index = cat2.index(elemento)
+                # nuovo.append(elemento)
+                # for tupla in elemento:
+                nota = cat2[index][5]
+                notacombinata = elemento[5]+', ' + nota
+                elemento = list(elemento)
+                elemento[5] = notacombinata
+                elemento = tuple(elemento)
+                print(elemento)
+    nuovo.sort()
+    return nuovo
 
 
 
