@@ -108,19 +108,19 @@ def sono_uguali(cat1, cat2):
 def concatena(cat1, cat2):
     nuovo = cat1
     for elemento in cat2:
-        if elemento not in cat1:
+        if elemento not in nuovo:  # TROVA LE TUPLE CHE HANNO LA STESSA NOTA
             if len(elemento) == 4:
                 nuovo.append(elemento)
             else:
-                index = cat2.index(elemento)
-                # nuovo.append(elemento)
+                catalogo1 = [x[:-1] for x in cat1]
+                index = catalogo1.index(elemento[:-1])
                 # for tupla in elemento:
-                nota = cat2[index][5]
-                notacombinata = elemento[5] + ' ' + nota
+                nota = cat1[index][5]
+                notacombinata = elemento[5] + nota
                 elemento = list(elemento)
                 elemento[5] = notacombinata
                 elemento = tuple(elemento)
-                nuovo.append(elemento)
+                nuovo[index] = elemento
 
     nuovo.sort()  # ordine lessicografico
     return nuovo
@@ -164,7 +164,7 @@ def cerca(cat, pctitolo):
         # La funzione restituisce -1 se l'elemento non viene trovato
         # Cerca anche se l'elemento viene digitato in minuscolo
         minuscolo = elemento[2].lower()
-        if elemento[2].find(pctitolo) != -1:  # or minuscolo.find(pctitolo) != -1
+        if elemento[2].find(pctitolo) != -1 or minuscolo.find(pctitolo) != -1:
             trovato = True
             break
         else:
