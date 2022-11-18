@@ -136,6 +136,8 @@ def concatena(cat1, cat2):
 
 
 def cancella(cat,  titolo, anno=None):
+    if ((type(titolo)!=str) or (anno!=None and type(anno)!=int)):
+        return None
     counter = 0
     eliminati = 0
     for elemento in cat:
