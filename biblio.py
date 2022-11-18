@@ -120,6 +120,7 @@ def concatena(cat1, cat2):
                 elemento = list(elemento)
                 elemento[5] = notacombinata
                 elemento = tuple(elemento)
+                nuovo.append(elemento)
 
     nuovo.sort()  # ordine lessicografico
     return nuovo
@@ -136,7 +137,7 @@ def concatena(cat1, cat2):
 
 
 def cancella(cat,  titolo, anno=None):
-    if ((type(titolo)!=str) or (anno!=None and type(anno)!=int)):
+    if ((type(titolo) != str) or (anno != None and type(anno) != int)):
         return None
     counter = 0
     eliminati = 0
@@ -163,7 +164,7 @@ def cerca(cat, pctitolo):
         # La funzione restituisce -1 se l'elemento non viene trovato
         # Cerca anche se l'elemento viene digitato in minuscolo
         minuscolo = elemento[2].lower()
-        if elemento[2].find(pctitolo) != -1 or minuscolo.find(pctitolo) != -1:
+        if elemento[2].find(pctitolo) != -1:  # or minuscolo.find(pctitolo) != -1
             trovato = True
             break
         else:
