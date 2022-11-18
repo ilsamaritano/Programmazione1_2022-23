@@ -39,7 +39,7 @@ def test_finale():
     print(a)
     #
     testFalliti += testEqual(inserisci(c, 1.23, "Georges",
-                             "Gli intrusi", 2015, ("T", 33)), False)
+                             "Gli intrusi", 2015, ("T", 33)), None)
     #
     b = serializza(c)
     if (a != b):

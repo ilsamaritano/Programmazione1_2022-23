@@ -106,22 +106,22 @@ def sono_uguali(cat1, cat2):
 
 
 def concatena(cat1, cat2):
-    nuovo = []
-    for elemento in cat1:
-        if elemento in cat2:  # NON VA BENE PERCHE' FA L'INTERSEZIONE PD
-            if len(elemento) == 5:
+    nuovo = cat1
+    for elemento in cat2:
+        if elemento not in cat1:
+            if len(elemento) == 4:
                 nuovo.append(elemento)
             else:
                 index = cat2.index(elemento)
                 # nuovo.append(elemento)
                 # for tupla in elemento:
                 nota = cat2[index][5]
-                notacombinata = elemento[5]+', ' + nota
+                notacombinata = elemento[5] + ' ' + nota
                 elemento = list(elemento)
                 elemento[5] = notacombinata
                 elemento = tuple(elemento)
-                print(elemento)
-    nuovo.sort()
+
+    nuovo.sort()  # ordine lessicografico
     return nuovo
     """crea un nuovo catalogo concatenando cat1 e cat2 e lo restituisce come risultato --
     se ci sono k record uguali in tutti i campi eccetto il campo "note"
@@ -159,7 +159,9 @@ def cancella(cat,  titolo, anno=None):
 def cerca(cat, pctitolo):
     for elemento in cat:
         # La funzione restituisce -1 se l'elemento non viene trovato
-        if elemento[2].find(pctitolo) != -1:
+        # Cerca anche se l'elemento viene digitato in minuscolo
+        minuscolo = elemento[2].lower()
+        if elemento[2].find(pctitolo) != -1 or minuscolo.find(pctitolo) != -1:
             trovato = True
             break
         else:
