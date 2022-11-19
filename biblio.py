@@ -7,7 +7,6 @@ from testMy import *
 
 
 def inserisci(cat, cognome, nome, titolo, anno, collocazione, note=[]):
-    risposta = False
     if type(cat) != list:
         risposta = None
     elif type(cognome) != str or type(nome) != str or type(titolo) != str:
@@ -18,13 +17,14 @@ def inserisci(cat, cognome, nome, titolo, anno, collocazione, note=[]):
         risposta = None
     elif (type(note) != list) and (type(note) != str):
         risposta = None
-    else:
+    else:  # Dopo aver controllato i valori di tutti i campi procedo all'inserimento
         if note == []:
-            # COMMENTARE IL CODICE
+            # Se non ci sono note viene appesa una tupla con 5 valori
             tupla = (cognome, nome, titolo,  collocazione, anno)
             cat.append(tupla)
             risposta = True
         elif type(note) == str or type(note) == int:
+            # Se c'è la nota controllo che sia del formato corretto e inserisco la tupla con 6 valori
             tupla = (cognome, nome, titolo, collocazione, anno,
                      note)  # COMMENTARE IL CODICE
             cat.append(tupla)
@@ -78,7 +78,7 @@ def crea_copia(cat):
 
 
 def sono_uguali(cat1, cat2):
-    if len(cat1) != len(cat2):
+    if len(cat1) != len(cat2):  # Se la lunghezza dei due cataloghi è diversa sono necessariamente diversi
         return False
     else:
         newCat1 = []
@@ -106,23 +106,27 @@ def sono_uguali(cat1, cat2):
 
 
 def concatena(cat1, cat2):
-    nuovo = cat1
+    nuovo = cat1  # Il nuovo catalogo viene inizializzato con il primo catalogo
     for elemento in cat2:
-        if elemento not in nuovo:  # TROVA LE TUPLE CHE HANNO LA STESSA NOTA
+        # Per ogni elemento viene visto se non si trova nel catalogo (e ha note differenti) esso viene aggiunto
+        if elemento not in nuovo:
             if len(elemento) == 4:
                 nuovo.append(elemento)
             else:
+                # Rimuovo la nota (ultimo elemento)
                 catalogo1 = [x[:-1] for x in cat1]
                 index = catalogo1.index(elemento[:-1])
                 # for tupla in elemento:
                 nota = cat1[index][5]
+                # Concateno le note dei due libri
                 notacombinata = elemento[5] + nota
                 elemento = list(elemento)
                 elemento[5] = notacombinata
                 elemento = tuple(elemento)
+                # Inserisco l'elemento con la nota concatenata
                 nuovo[index] = elemento
 
-    nuovo.sort()  # ordine lessicografico
+    ordina(nuovo)  # ordine lessicografico
     return nuovo
     """crea un nuovo catalogo concatenando cat1 e cat2 e lo restituisce come risultato --
     se ci sono k record uguali in tutti i campi eccetto il campo "note"
@@ -162,7 +166,7 @@ def cancella(cat,  titolo, anno=None):
 def cerca(cat, pctitolo):
     for elemento in cat:
         # La funzione restituisce -1 se l'elemento non viene trovato
-        # Cerca anche se l'elemento viene digitato in minuscolo
+        # Cerca anche se il titolo viene digitato in minuscolo
         minuscolo = elemento[2].lower()
         if elemento[2].find(pctitolo) != -1 or minuscolo.find(pctitolo) != -1:
             trovato = True
@@ -180,8 +184,9 @@ def cerca(cat, pctitolo):
     pass  # instruzione che non fa niente --> da sostituire con il codice
 
 
-def ordina(cat):
+def ordina(cat):  # VA ORDINATO PER ANNO IN CASO DI CONFLITTI
     cat.sort()
+
     return None
     """ Ordina il catalogo alfabeticamente per cognome e nome e
     (in caso di piu' opere dello stesso autore) per anno di pubblicazione e
