@@ -185,7 +185,7 @@ def cerca(cat, pctitolo):
 
 
 def ordina(cat):  # VA ORDINATO PER ANNO IN CASO DI CONFLITTI
-    cat.sort()
+    cat.sort(key=lambda key: (key[0], key[1], key[3], key[2]))
 
     return None
     """ Ordina il catalogo alfabeticamente per cognome e nome e
