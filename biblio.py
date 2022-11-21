@@ -34,7 +34,7 @@ def inserisci(cat, cognome, nome, titolo, anno, collocazione, note=[]):
 
 
 def serializza(cat):
-    # Inizializzo una stringa vuota e inserisco gli elementi separati da ritorni a capo (\n)
+    # Inizializzo una stringa vuota e inserisco gli elementi del catalogo separati da ritorni a capo (\n)
     riga = ""
     if type(cat) == list:
         for elemento in cat:
@@ -78,7 +78,7 @@ def concatena(cat1, cat2):
                 # Rimuovo la nota (ultimo elemento)
                 catalogo1 = [x[:-1] for x in cat1]
                 index = catalogo1.index(elemento[:-1])
-                # for tupla in elemento:
+                # Trovo l'indice dell'elemento senza nota
                 nota = cat1[index][5]
                 # Concateno le note dei due libri
                 notacombinata = elemento[5] + nota
