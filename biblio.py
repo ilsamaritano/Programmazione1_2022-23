@@ -34,6 +34,7 @@ def inserisci(cat, cognome, nome, titolo, anno, collocazione, note=[]):
 
 
 def serializza(cat):
+    # Inizializzo una stringa vuota e inserisco gli elementi separati da ritorni a capo (\n)
     riga = ""
     if type(cat) == list:
         for elemento in cat:
